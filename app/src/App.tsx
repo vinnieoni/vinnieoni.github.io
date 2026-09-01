@@ -10,9 +10,10 @@ import { CaseStudy } from '@/sections/CaseStudy';
 import { MoomooCaseStudy } from '@/sections/MoomooCaseStudy';
 import { MedicalCaseStudy } from '@/sections/MedicalCaseStudy';
 import { HealingbreezeCaseStudy } from '@/sections/HealingbreezeCaseStudy';
+import { ElrejuCaseStudy } from '@/sections/ElrejuCaseStudy';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'casestudy' | 'moomoo' | 'medical' | 'healingbreeze'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'casestudy' | 'moomoo' | 'medical' | 'healingbreeze' | 'elreju'>('home');
 
   useEffect(() => {
     // Check URL hash for case study
@@ -24,6 +25,8 @@ function App() {
       setCurrentPage('medical');
     } else if (window.location.hash === '#healingbreeze') {
       setCurrentPage('healingbreeze');
+    } else if (window.location.hash === '#elreju') {
+      setCurrentPage('elreju');
     }
 
     // Listen for hash changes
@@ -36,6 +39,8 @@ function App() {
         setCurrentPage('medical');
       } else if (window.location.hash === '#healingbreeze') {
         setCurrentPage('healingbreeze');
+      } else if (window.location.hash === '#elreju') {
+        setCurrentPage('elreju');
       } else {
         setCurrentPage('home');
       }
@@ -61,14 +66,18 @@ function App() {
     return <HealingbreezeCaseStudy />;
   }
 
+  if (currentPage === 'elreju') {
+    return <ElrejuCaseStudy />;
+  }
+
   return (
     <div className="min-h-screen bg-portfolio-bg">
       <Navigation />
       <main>
         <Hero />
+        <About />
         <Projects />
         <Capabilities />
-        <About />
         <Contact />
       </main>
       <Footer />

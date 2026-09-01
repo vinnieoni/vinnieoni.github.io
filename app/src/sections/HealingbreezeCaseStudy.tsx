@@ -62,6 +62,16 @@ const dashboardLayers = [
   },
 ];
 
+const aiContentWorkflow = ['PROMPT DESIGN', 'AI DRAFT', 'QC · NATURALNESS / MEDICAL ACCURACY / AD COMPLIANCE', 'REVISION (v1→v3)'];
+
+const guSitcomEpisodes = [
+  { ep: 'EP1', title: '직업병', logline: '길에서 남 얼굴만 분석하던 원장이, 진짜 전문가 앞에서 역으로 분석당한다' },
+  { ep: 'EP2', title: '자의식 과잉', logline: '직원들이 다 자신을 좋아한다 착각하지만, 실제 관심은 0' },
+  { ep: 'EP3', title: '진상 동종업계', logline: '근거·데이터만 캐묻던 진상 손님의 정체는 동종업계 원장' },
+  { ep: 'EP4', title: '피해망상', logline: '비싼 시술 팔 거라 잔뜩 경계했는데, "지금은 안 하셔도 됩니다"에 오히려 당황' },
+  { ep: 'EP5', title: '두 살 어린데', logline: '나이 자랑 → 길거리·직원·환자 즉석 투표에서 만장일치 패배' },
+];
+
 const dataFlow = [
   'CONTENT',
   'ENGAGEMENT',
@@ -484,12 +494,98 @@ export function HealingbreezeCaseStudy() {
         </div>
       </section>
 
-      {/* 05 SELECTED CONTENT PERFORMANCE */}
+      {/* 05 AI-ASSISTED CONTENT PRODUCTION */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="section-padding">
           <div className="container-wide">
             <SectionHeader
               num="05"
+              caption="AI-ASSISTED CONTENT PRODUCTION"
+              title={'SCALING CONTENT\nWITH GENERATIVE AI'}
+            />
+            <p className="text-body-large text-portfolio-dark-grey max-w-3xl leading-relaxed mb-12">
+              콘텐츠 제작 볼륨을 늘리기 위해 생성형 AI를 활용한 기획·대본 프로덕션 프로세스를
+              구축했습니다. 기획 의도부터 촬영 가능한 콘티, 대사까지 AI와 협업해 초안을 제작하고,
+              자연스러움·의료 정보 정확성·의료광고 규정 준수 기준으로 반복 검수했습니다.
+            </p>
+
+            {/* Workflow */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-3 mb-16">
+              {aiContentWorkflow.map((step, i) => (
+                <span key={step} className="flex items-center gap-3">
+                  <span className="px-4 py-3 border border-portfolio-black text-caption font-semibold tracking-[0.1em] text-portfolio-black">
+                    {step}
+                  </span>
+                  {i < aiContentWorkflow.length - 1 && (
+                    <span className="text-portfolio-grey">→</span>
+                  )}
+                </span>
+              ))}
+            </div>
+
+            {/* Example project */}
+            <div className="bg-portfolio-black text-white p-8 lg:p-12 mb-12">
+              <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-4">
+                EXAMPLE — "지유클리닉 잠입 수사" 시리즈
+              </span>
+              <h3 className="text-title text-white mb-4 leading-snug">
+                라이벌 원장이 매번 정탐하러 왔다가 매번 무너지는 6부작 스케치 코미디
+              </h3>
+              <p className="text-body text-portfolio-light-grey leading-relaxed mb-8">
+                병원 홍보물이 아니라 캐릭터 중심 시트콤으로 기획했습니다. Douyin · Instagram Reels
+                (글로벌) · Meta 광고 · 바이럴 계정까지 멀티 채널 배포를 전제로 컷별 콘티와 대사를
+                촬영 가능한 수준으로 작성했습니다.
+              </p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                {guSitcomEpisodes.map((e) => (
+                  <div key={e.ep} className="border border-white/20 p-4">
+                    <span className="text-caption text-portfolio-grey tracking-[0.15em] block mb-2">
+                      {e.ep}
+                    </span>
+                    <p className="text-small font-bold text-white mb-2">{e.title}</p>
+                    <p className="text-[11px] text-portfolio-grey leading-relaxed">{e.logline}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Flagship episode evidence */}
+            <div className="bg-portfolio-bg border border-portfolio-light-grey p-8 lg:p-12 mb-12">
+              <div className="flex items-baseline justify-between gap-4 mb-6">
+                <span className="text-caption text-portfolio-grey tracking-[0.2em]">EP6 · 대표 회차</span>
+                <span className="text-caption text-portfolio-grey tracking-[0.15em]">남자의 자존심</span>
+              </div>
+              <p className="text-body text-portfolio-dark-grey leading-relaxed mb-6">
+                체력·에너지에 자신만만하던 라이벌 원장이, 원장님의 '일상 디테일' 질문 하나하나에
+                무너지는 구조. 성 기능·전신 효과 언급은 0회 — 대신 "5층은 걸어 올라가세요?" 같은
+                일상 질문만으로 남성 시청자의 공감을 정면으로 겨냥했습니다.
+              </p>
+              <div className="space-y-2 mb-6 text-body text-portfolio-black">
+                <p><span className="text-portfolio-grey">원장:</span> "5층은 걸어 올라가세요?"</p>
+                <p><span className="text-portfolio-grey">라이벌 원장:</span> "…엘리베이터 있는데요?"</p>
+                <p><span className="text-portfolio-grey">원장:</span> "술 다음 날, 하루로 안 풀리시죠."</p>
+                <p><span className="text-portfolio-grey">라이벌 원장:</span> (작게) "…이틀."</p>
+              </div>
+              <p className="text-caption text-portfolio-black font-semibold border-t border-portfolio-light-grey pt-4">
+                컴플라이언스 노트: 전신 효과·기능 개선을 직접 약속하지 않고, 피부에 드러난 피로·노화
+                신호만 근거로 제안 — 의료광고 심의 리스크를 대본 단계에서 사전 통제.
+              </p>
+            </div>
+
+            <p className="text-small text-portfolio-grey max-w-2xl leading-relaxed">
+              이 시리즈는 촬영 전 기획 단계이며, 실제 시술명·효능 표현은 클리닉 메뉴 확인과 의료광고
+              심의를 거쳐 확정됩니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 06 SELECTED CONTENT PERFORMANCE */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="section-padding">
+          <div className="container-wide">
+            <SectionHeader
+              num="06"
               caption="SELECTED CONTENT PERFORMANCE"
               title={'SELECTED CONTENT\nPERFORMANCE'}
             />
@@ -646,12 +742,12 @@ export function HealingbreezeCaseStudy() {
         </div>
       </section>
 
-      {/* 06 DATA & PERFORMANCE */}
+      {/* 07 DATA & PERFORMANCE */}
       <section className="py-24 lg:py-32 bg-portfolio-bg">
         <div className="section-padding">
           <div className="container-wide">
             <SectionHeader
-              num="06"
+              num="07"
               caption="DATA & PERFORMANCE SYSTEM"
               title={'FROM CONTENT METRICS\nTO BUSINESS SIGNALS'}
             />
@@ -767,12 +863,12 @@ export function HealingbreezeCaseStudy() {
         </div>
       </section>
 
-      {/* 07 WHAT THIS PROJECT PROVES */}
+      {/* 08 WHAT THIS PROJECT PROVES */}
       <section className="py-24 lg:py-32 bg-portfolio-black text-white">
         <div className="section-padding">
           <div className="container-wide">
             <SectionHeader
-              num="07"
+              num="08"
               caption="WHAT THIS PROJECT PROVES"
               title={'FROM CONTENT EXECUTION\nTO DATA-DRIVEN DIGITAL MARKETING'}
               light

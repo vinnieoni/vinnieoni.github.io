@@ -2,3 +2,13 @@
 node_modules/
 dist/
 *.local
+
+# Confidential / working reference material — not for the public site
+JD.png
+elreju_project.pdf
+Elreju_TikTok전략_v3_Evidence.pptx
+A1.md
+A2.md
+A3.md
+thumb1.png
+thumb2.png

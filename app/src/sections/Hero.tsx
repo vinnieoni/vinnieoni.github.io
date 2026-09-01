@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Mail } from 'lucide-react';
+import { ArrowRight, Mail, Globe, Share2, Target, Sparkles } from 'lucide-react';
+
+const glanceFacts = [
+  { icon: Globe, label: 'MARKETS', value: 'Korea · China · US' },
+  { icon: Share2, label: 'PLATFORMS', value: 'Douyin · Xiaohongshu · TikTok Shop · Instagram' },
+  { icon: Target, label: 'FOCUS', value: 'New Channel Launch · Content Strategy' },
+  { icon: Sparkles, label: 'TOOLS', value: 'Generative AI · BI Dashboarding' },
+];
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -31,20 +38,34 @@ export function Hero() {
       <div className="section-padding w-full pt-24 pb-16">
         <div className="container-wide">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-10rem)]">
-            {/* Left Content - Profile Image */}
-            <div className="flex justify-center lg:justify-start order-1">
+            {/* Left Content - At a Glance */}
+            <div className="flex justify-center lg:justify-start order-2 lg:order-1">
               <div
-                className={`relative transition-all duration-1000 ease-expo-out ${
+                className={`relative w-full max-w-[400px] transition-all duration-1000 ease-expo-out ${
                   isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: '0.3s' }}
               >
-                <div className="relative w-[280px] sm:w-[350px] lg:w-[400px] aspect-[3/4] overflow-hidden">
-                  <img
-                    src="/hero-profile.jpg"
-                    alt="서문청"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="relative bg-white p-8 sm:p-10">
+                  <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-8">
+                    AT A GLANCE
+                  </span>
+                  <div className="space-y-7">
+                    {glanceFacts.map((fact) => {
+                      const Icon = fact.icon;
+                      return (
+                        <div key={fact.label}>
+                          <div className="flex items-center gap-2 mb-2">
+                            <Icon size={15} className="text-portfolio-grey" />
+                            <span className="text-small text-portfolio-grey tracking-[0.1em]">
+                              {fact.label}
+                            </span>
+                          </div>
+                          <p className="text-body font-medium text-portfolio-black">{fact.value}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
                 {/* Decorative Frame */}
                 <div
@@ -57,7 +78,7 @@ export function Hero() {
             </div>
 
             {/* Right Content - Text */}
-            <div className="flex flex-col justify-center order-2">
+            <div className="flex flex-col justify-center order-1 lg:order-2">
               {/* Name */}
               <div
                 className={`mb-4 transition-all duration-600 ease-expo-out ${
@@ -105,7 +126,7 @@ export function Hero() {
                 }`}
                 style={{ transitionDelay: '0.7s' }}
               >
-                Cross-border Growth · Content · Data · AI
+                Cross-border Growth · Content · Data · Gen AI
               </p>
 
               {/* Subtitle */}
@@ -125,7 +146,7 @@ export function Hero() {
                 }`}
                 style={{ transitionDelay: '0.9s' }}
               >
-                China Market Expertise · Korea-based Experience
+                Global Market Expertise · Korea-based Experience
               </p>
 
               {/* Buttons */}

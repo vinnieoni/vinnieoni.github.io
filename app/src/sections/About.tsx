@@ -10,12 +10,12 @@ const details = [
   {
     icon: GraduationCap,
     label: '학력',
-    value: '영화학과 석사',
+    value: '성균관대학교 영상학과 석사',
   },
   {
     icon: Languages,
     label: '언어',
-    value: '中文 Native · 한국어 TOPIK 6급 · English',
+    value: '中文 Native · English · 한국어 TOPIK 6급',
   },
 ];
 
@@ -108,8 +108,8 @@ export function About() {
               {/* Bio */}
               <div className="space-y-4 mb-10">
                 {[
-                  '한국을 기반으로 Cross-border Digital Marketing 실무를 수행하며, 중국 디지털 생태계에 대한 시장 이해와 Douyin·Xiaohongshu 등 주요 플랫폼 실행 경험을 보유하고 있습니다.',
-                  '시장 조사와 전략 수립부터 콘텐츠 실행, 성과 분석, 마케팅 데이터 시스템 구축까지 연결합니다. Generative AI는 콘텐츠 실행과 업무 효율화를 위한 실무 도구로 활용합니다.',
+                  '한국을 기반으로 Cross-border Digital Marketing 실무를 수행하며, 글로벌 디지털 생태계에 대한 시장 이해와 Douyin · Xiaohongshu · TikTok Shop · Instagram 등 주요 플랫폼 실행 경험을 보유하고 있습니다.',
+                  '시장 조사와 전략 수립부터 콘텐츠 실행, 성과 분석, 마케팅 데이터 시스템 구축까지 연결하며, 생성형 AI를 콘텐츠 실행과 업무 효율화를 위한 실무 도구로 활용합니다.',
                 ].map((paragraph, index) => (
                   <p
                     key={index}

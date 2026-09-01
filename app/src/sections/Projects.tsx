@@ -10,6 +10,8 @@ interface Project {
   image: string | null;
   link: string | null;
   signals?: { value: string; label: string }[];
+  coverLabel?: string;
+  coverSubtitle?: string;
 }
 
 const projects: Project[] = [
@@ -20,13 +22,29 @@ const projects: Project[] = [
     description:
       "강남언니 운영사 힐링페이퍼 계열 Healthcare MSO — 0→1 중국 디지털 채널 구축부터 시장 조사, 콘텐츠 전략, 성장, 성과 분석까지",
     metrics: '2026.05.18 – Present',
-    image: null,
+    image: '/healingbreeze-thumb.png',
     link: '#healingbreeze',
     signals: [
       { value: '0→1', label: 'DIGITAL CHANNEL BUILDING' },
       { value: '2.1K+', label: 'DOUYIN AUDIENCE' },
       { value: '22K+', label: 'ACCOUNT LIKES' },
       { value: '4', label: 'CHINA DIGITAL PLATFORMS' },
+    ],
+  },
+  {
+    id: 5,
+    category: 'Global eCommerce Strategy & Growth',
+    title: 'ELREJU × KBSL',
+    description:
+      '한국 병원 발(發) K-Beauty 브랜드의 미국 TikTok Shop 진출을 앞두고 1개월간 수행한 Pre-Launch 시장조사 및 Go-to-Market 전략 수립 — 경쟁 분석, 전환 구조 설계, 가격·GMV 시나리오, 실행 로드맵',
+    metrics: '2026.04 · 1-Month Strategy Sprint',
+    image: '/elreju-thumb.png',
+    link: '#elreju',
+    signals: [
+      { value: '1mo', label: 'STRATEGY SPRINT' },
+      { value: 'US', label: 'TIKTOK SHOP MARKET ENTRY' },
+      { value: '3', label: 'GMV SCENARIOS' },
+      { value: '4', label: 'EXECUTION PHASES' },
     ],
   },
   {
@@ -80,11 +98,11 @@ function ProjectCard({
             className="w-full h-full object-cover transition-transform duration-700 ease-expo-out group-hover:scale-108"
           />
         ) : (
-          /* Typographic Cover for main case study */
+          /* Typographic Cover for image-less case studies */
           <div className="w-full h-full bg-portfolio-black flex flex-col items-center justify-center gap-3 px-8 text-center">
-            <span className="text-caption text-portfolio-grey tracking-[0.2em]">MAIN CASE STUDY</span>
-            <span className="text-2xl lg:text-3xl font-bold text-white tracking-tight">HEALINGBREEZE / GU</span>
-            <span className="text-small text-portfolio-grey">Building a Cross-border Digital Growth System</span>
+            <span className="text-caption text-portfolio-grey tracking-[0.2em]">{project.coverLabel ?? 'CASE STUDY'}</span>
+            <span className="text-2xl lg:text-3xl font-bold text-white tracking-tight">{project.title}</span>
+            <span className="text-small text-portfolio-grey">{project.coverSubtitle ?? project.description}</span>
           </div>
         )}
         {/* Overlay */}
