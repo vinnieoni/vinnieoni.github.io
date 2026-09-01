@@ -19,8 +19,8 @@ const capabilities = [
   },
   {
     icon: Film,
-    title: 'CHINA DIGITAL MARKET & AI',
-    skills: ['Douyin', 'Xiaohongshu', 'China Digital Ecosystem', 'Generative AI'],
+    title: 'GLOBAL DIGITAL MARKET & AI',
+    skills: ['Douyin', 'Xiaohongshu', 'Instagram', 'TikTok Shop', 'China Digital Ecosystem', 'Generative AI'],
   },
 ];
 
