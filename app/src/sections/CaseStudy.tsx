@@ -201,17 +201,18 @@ export function CaseStudy() {
               <span className="text-caption text-portfolio-grey tracking-[0.2em] mb-4 block">성과</span>
               <h2 className="text-headline text-portfolio-black mb-6">Results</h2>
               <p className="text-body-large text-portfolio-dark-grey leading-relaxed">
-                약 2년간 SNS 채널 운영을 통해 다음과 같은 성과를 달성했습니다.
+                약 2년간 4개 플랫폼을 동시 운영하며 다음과 같은 성과를 달성했습니다. 평균
+                참여율은 2.7%를 유지했습니다.
               </p>
             </div>
-            
+
             {/* KPI Cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
               {[
-                { value: '800+', label: '숏폼 콘텐츠 제작' },
-                { value: '450,000+', label: '총 조회수' },
+                { value: '200+', label: '숏폼 콘텐츠 제작' },
+                { value: '450,000+', label: '누적 조회수' },
+                { value: '35,000', label: '최고 단일 콘텐츠 조회수' },
                 { value: '2,100+', label: '누적 팔로워' },
-                { value: '2.7%', label: '평균 참여율' },
               ].map((stat) => (
                 <div key={stat.label} className="bg-portfolio-bg p-6 text-center">
                   <div className="text-3xl font-bold text-portfolio-black mb-2">{stat.value}</div>
