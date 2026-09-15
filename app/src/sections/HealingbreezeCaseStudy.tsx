@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, ArrowDown, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowDown, ExternalLink, Lock } from 'lucide-react';
 
 const challenges = [
   {
@@ -70,6 +70,19 @@ const dataFlow = [
   'RESERVATION',
   'ANALYSIS',
   'DECISION',
+];
+
+const attributionMetrics = [
+  { value: '2,810', label: 'MATURE VISIT CUSTOMERS' },
+  { value: '59.7%', label: 'VISIT → PAID' },
+  { value: '98.5%', label: 'PAYMENT ATTRIBUTION SUCCESS' },
+];
+
+const attributionCapabilities = [
+  '30-DAY ATTRIBUTION',
+  'COHORT ANALYSIS',
+  'REVENUE RECONCILIATION',
+  'PII-SAFE AGGREGATION',
 ];
 
 function SectionHeader({
@@ -193,7 +206,8 @@ export function HealingbreezeCaseStudy() {
               <div>
                 <span className="text-caption text-portfolio-grey tracking-[0.15em] block mb-2">SCOPE</span>
                 <p className="text-body text-white font-medium">
-                  Douyin · Xiaohongshu · Content Strategy · Channel Growth · Performance · Data
+                  Douyin · Xiaohongshu · Content Strategy · Channel Growth · Performance · Data ·
+                  Revenue Attribution
                 </p>
               </div>
             </div>
@@ -682,25 +696,18 @@ export function HealingbreezeCaseStudy() {
                 />
               </div>
               <div className="mt-8 flex flex-wrap items-start gap-6 lg:gap-10">
-                <a
-                  href="https://vinnieoni.github.io/hb-china-dashboard/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-portfolio-black text-portfolio-black text-sm font-semibold tracking-[0.15em] transition-all duration-300 hover:bg-portfolio-black hover:text-white"
-                >
-                  <span>VIEW LIVE DASHBOARD</span>
-                  <ExternalLink
-                    size={16}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                  />
-                </a>
+                <div className="inline-flex items-center gap-3 px-8 py-4 border-2 border-portfolio-light-grey text-portfolio-grey text-sm font-semibold tracking-[0.15em]">
+                  <Lock size={16} />
+                  <span>INTERNAL ANALYTICS DASHBOARD</span>
+                </div>
                 <div className="max-w-md">
                   <p className="text-caption font-semibold text-portfolio-black tracking-[0.15em] mb-2">
-                    PORTFOLIO DEMO · SYNTHETIC DATA
+                    REAL DATA · PII-SAFE AGGREGATION
                   </p>
                   <p className="text-small text-portfolio-grey leading-relaxed">
-                    실제 프로젝트의 측정 구조와 분석 로직을 기반으로 설계했으며, 보안을 위해 공개 버전의
-                    수치는 Synthetic Data로 대체했습니다.
+                    실제 운영 데이터의 PII-safe aggregation을 기반으로 하며, 개인 식별 정보 없이 집계
+                    지표만 공개합니다. 회사 내부 매출 데이터 보호를 위해 실제 매출 절대 금액은 공개하지
+                    않습니다.
                   </p>
                 </div>
               </div>
@@ -755,12 +762,66 @@ export function HealingbreezeCaseStudy() {
               </p>
             </div>
 
+            {/* Revenue Attribution MVP */}
+            <div className="mb-20 bg-portfolio-black text-white p-8 lg:p-14">
+              <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-6">
+                <span className="text-caption text-portfolio-grey tracking-[0.2em]">
+                  REVENUE ATTRIBUTION MVP
+                </span>
+                <span className="text-caption text-portfolio-grey tracking-[0.2em]">
+                  2026.06.01 – 09.14
+                </span>
+              </div>
+
+              <h3 className="text-headline text-white leading-[1.15] mb-8">
+                FROM RESERVATION
+                <br />
+                TO ATTRIBUTED REVENUE
+              </h3>
+
+              <p className="text-body-large text-portfolio-light-grey max-w-3xl leading-relaxed mb-12">
+                중화권 마케팅 데이터를 실제 내원·결제 데이터와 연결해, 마케팅 성과를 문의·예약에서 실제
+                매출까지 추적할 수 있는 30일 Revenue Attribution MVP를 직접 설계·구축했습니다.
+              </p>
+
+              {/* Key business impact */}
+              <div className="grid sm:grid-cols-3 gap-10 lg:gap-12 pt-12 border-t border-white/20">
+                {attributionMetrics.map((m) => (
+                  <div key={m.label}>
+                    <p className="text-5xl lg:text-6xl font-bold tracking-tight mb-2">{m.value}</p>
+                    <p className="text-caption text-portfolio-grey tracking-[0.15em]">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Analytics capability tags */}
+              <div className="flex flex-wrap gap-2 lg:gap-3 mt-12">
+                {attributionCapabilities.map((c) => (
+                  <span
+                    key={c}
+                    className="px-4 py-2 border border-white/40 text-caption font-semibold tracking-[0.15em] text-white"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-white/20">
+                <p className="text-small text-portfolio-grey leading-relaxed max-w-3xl">
+                  30일 성숙 코호트(Mature Cohort) 기준으로 측정된 결과입니다. 98.5%는 승인 결제 레코드
+                  중 방문 이벤트에 성공적으로 귀인된 비율이며, 매출액 기준 지표가 아닙니다. 현재 KOS
+                  Excel Snapshot 기반 MVP 단계이며, 회사 내부 매출 데이터 보호를 위해 실제 매출 절대
+                  금액은 공개하지 않습니다.
+                </p>
+              </div>
+            </div>
+
             {/* My Role */}
             <div className="pt-8 border-t border-portfolio-light-grey">
               <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-4">MY ROLE</span>
               <p className="text-body-large text-portfolio-black font-medium leading-relaxed">
                 Market Research · Strategy · Content Planning · Channel Operation · Performance Analysis ·
-                Dashboard Planning & Building · AI-assisted Creative Execution
+                Dashboard Planning & Building · Revenue Attribution Design · AI-assisted Creative Execution
               </p>
             </div>
           </div>
@@ -774,12 +835,13 @@ export function HealingbreezeCaseStudy() {
             <SectionHeader
               num="07"
               caption="WHAT THIS PROJECT PROVES"
-              title={'FROM CONTENT EXECUTION\nTO DATA-DRIVEN DIGITAL MARKETING'}
+              title={'FROM CONTENT EXECUTION\nTO MEASURABLE REVENUE'}
               light
             />
             <p className="text-body-large text-portfolio-light-grey max-w-3xl leading-relaxed">
               시장 이해를 기반으로 채널 구축, 콘텐츠 실행, 퍼포먼스 분석, 데이터 기반 의사결정까지 연결하는
-              Digital Marketing Cycle을 직접 설계하고 운영했습니다.
+              Digital Marketing Cycle을 직접 설계하고 운영했으며, 마케팅 성과를 실제 매출까지 추적하는
+              측정 체계로 확장했습니다.
             </p>
           </div>
         </div>
