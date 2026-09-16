@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, ArrowDown, ExternalLink, Lock } from 'lucide-react';
+import { ArrowLeft, ArrowDown, ExternalLink } from 'lucide-react';
 
 const challenges = [
   {
@@ -73,9 +73,9 @@ const dataFlow = [
 ];
 
 const attributionMetrics = [
-  { value: '2,810', label: 'MATURE VISIT CUSTOMERS' },
-  { value: '59.7%', label: 'VISIT → PAID' },
-  { value: '98.5%', label: 'PAYMENT ATTRIBUTION SUCCESS' },
+  { value: '1,845', label: 'MATURE VISIT CUSTOMERS' },
+  { value: '48.3%', label: 'VISIT → PAID' },
+  { value: '₩1.90B', label: 'ATTRIBUTED REVENUE' },
 ];
 
 const attributionCapabilities = [
@@ -696,17 +696,25 @@ export function HealingbreezeCaseStudy() {
                 />
               </div>
               <div className="mt-8 flex flex-wrap items-start gap-6 lg:gap-10">
-                <div className="inline-flex items-center gap-3 px-8 py-4 border-2 border-portfolio-light-grey text-portfolio-grey text-sm font-semibold tracking-[0.15em]">
-                  <Lock size={16} />
-                  <span>INTERNAL ANALYTICS DASHBOARD</span>
-                </div>
+                <a
+                  href="https://vinnieoni.github.io/hb-china-dashboard-demo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-portfolio-black text-portfolio-black text-sm font-semibold tracking-[0.15em] transition-all duration-300 hover:bg-portfolio-black hover:text-white"
+                >
+                  <span>VIEW LIVE DASHBOARD</span>
+                  <ExternalLink
+                    size={16}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  />
+                </a>
                 <div className="max-w-md">
                   <p className="text-caption font-semibold text-portfolio-black tracking-[0.15em] mb-2">
-                    REAL DATA · PII-SAFE AGGREGATION
+                    PORTFOLIO DEMO · SYNTHETIC DATA
                   </p>
                   <p className="text-small text-portfolio-grey leading-relaxed">
-                    실제 운영 데이터의 PII-safe aggregation을 기반으로 하며, 개인 식별 정보 없이 집계
-                    지표만 공개합니다. 회사 내부 매출 데이터 보호를 위해 실제 매출 절대 금액은 공개하지
+                    실제 업무에서 설계한 Revenue Attribution 구조와 데이터 트렌드를 포트폴리오용
+                    Synthetic Data로 재구성했습니다. 표시된 수치는 실제 회사 운영 실적을 나타내지
                     않습니다.
                   </p>
                 </div>
@@ -771,6 +779,9 @@ export function HealingbreezeCaseStudy() {
                 <span className="text-caption text-portfolio-grey tracking-[0.2em]">
                   2026.06.01 – 09.14
                 </span>
+                <span className="px-3 py-1 border border-white/40 text-caption font-semibold tracking-[0.15em] text-white">
+                  PORTFOLIO DEMO · SYNTHETIC DATA
+                </span>
               </div>
 
               <h3 className="text-headline text-white leading-[1.15] mb-8">
@@ -808,10 +819,9 @@ export function HealingbreezeCaseStudy() {
 
               <div className="mt-12 pt-8 border-t border-white/20">
                 <p className="text-small text-portfolio-grey leading-relaxed max-w-3xl">
-                  30일 성숙 코호트(Mature Cohort) 기준으로 측정된 결과입니다. 98.5%는 승인 결제 레코드
-                  중 방문 이벤트에 성공적으로 귀인된 비율이며, 매출액 기준 지표가 아닙니다. 현재 KOS
-                  Excel Snapshot 기반 MVP 단계이며, 회사 내부 매출 데이터 보호를 위해 실제 매출 절대
-                  금액은 공개하지 않습니다.
+                  30일 성숙 코호트(Mature Cohort)를 기준으로 귀인 매출을 측정하는 구조입니다. 위
+                  수치는 실제 업무에서 설계한 Attribution 로직과 데이터 트렌드를 포트폴리오용
+                  Synthetic Data로 재구성한 값이며, 실제 회사 운영 실적을 나타내지 않습니다.
                 </p>
               </div>
             </div>
