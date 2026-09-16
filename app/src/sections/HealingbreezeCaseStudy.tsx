@@ -44,32 +44,24 @@ const procedureKeywords = [
   { keyword: '울쎄라 #美版超声刀', display: '42.8만' },
 ];
 
-const dashboardLayers = [
-  {
-    num: '01',
-    title: 'CHANNEL & CONTENT',
-    items: ['Audience Response', 'Content / Format Performance'],
-  },
-  {
-    num: '02',
-    title: 'ACQUISITION & CONVERSION',
-    items: ['DB / Lead', 'Reservation / Conversion'],
-  },
-  {
-    num: '03',
-    title: 'CREATOR & CAMPAIGN',
-    items: ['Influencer Performance', 'Campaign / ROI Monitoring'],
-  },
+const analyticsModules = [
+  'Reservation & Conversion',
+  'Channel & Owner',
+  'Influencer Funnel',
+  'Content Performance',
+  'Mega Influencer ROI',
+  'Experience Group',
+  'Viral Posting',
+  'Revenue Attribution',
 ];
 
-const dataFlow = [
-  'CONTENT',
-  'ENGAGEMENT',
-  'CHANNEL',
-  'DB / LEAD',
+const measurementFlow = [
+  'CONTENT / CHANNEL',
+  'INQUIRY',
   'RESERVATION',
-  'ANALYSIS',
-  'DECISION',
+  'VISIT',
+  'PAYMENT',
+  'REVENUE',
 ];
 
 const attributionMetrics = [
@@ -667,11 +659,12 @@ export function HealingbreezeCaseStudy() {
             <SectionHeader
               num="06"
               caption="DATA & PERFORMANCE SYSTEM"
-              title={'FROM CONTENT METRICS\nTO BUSINESS SIGNALS'}
+              title={'FROM MARKETING SIGNALS\nTO REVENUE ATTRIBUTION'}
             />
             <p className="text-body-large text-portfolio-dark-grey max-w-3xl leading-relaxed mb-16">
-              조회수와 좋아요를 넘어, 채널·콘텐츠·크리에이터·DB·예약 데이터를 연결해 Marketing Performance를
-              확인할 수 있는 구조를 설계했습니다.
+              콘텐츠 성과부터 문의·예약·내원·결제까지 분절된 데이터를 연결해, 마케팅 활동이 실제 고객
+              전환과 수익으로 어떻게 이어지는지 측정할 수 있는 Performance Measurement 구조를
+              설계했습니다.
             </p>
 
             {/* Business Question */}
@@ -680,93 +673,65 @@ export function HealingbreezeCaseStudy() {
                 THE BUSINESS QUESTION
               </span>
               <h3 className="text-headline text-white leading-[1.15]">
-                HOW DO MARKETING ACTIVITIES
+                HOW DOES MARKETING
                 <br />
-                CONNECT TO CUSTOMER ACQUISITION?
+                CONNECT TO REVENUE?
               </h3>
             </div>
 
-            {/* Dashboard — Main Visual */}
-            <div className="mb-20">
-              <div className="border border-portfolio-light-grey overflow-hidden">
-                <img
-                  src="/hb-dashboard.png"
-                  alt="Marketing Performance Dashboard"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="mt-8 flex flex-wrap items-start gap-6 lg:gap-10">
-                <a
-                  href="https://vinnieoni.github.io/hb-china-dashboard-demo/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-portfolio-black text-portfolio-black text-sm font-semibold tracking-[0.15em] transition-all duration-300 hover:bg-portfolio-black hover:text-white"
-                >
-                  <span>VIEW LIVE DASHBOARD</span>
-                  <ExternalLink
-                    size={16}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                  />
-                </a>
-                <div className="max-w-md">
-                  <p className="text-caption font-semibold text-portfolio-black tracking-[0.15em] mb-2">
-                    PORTFOLIO DEMO · SYNTHETIC DATA
-                  </p>
-                  <p className="text-small text-portfolio-grey leading-relaxed">
-                    실제 업무에서 설계한 Revenue Attribution 구조와 데이터 트렌드를 포트폴리오용
-                    Synthetic Data로 재구성했습니다. 표시된 수치는 실제 회사 운영 실적을 나타내지
-                    않습니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Three Business Layers */}
+            {/* Measurement Architecture */}
             <div className="mb-20">
               <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-8">
-                DASHBOARD STRUCTURE — THREE BUSINESS LAYERS
+                MEASUREMENT ARCHITECTURE
               </span>
-              <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-                {dashboardLayers.map((layer) => (
-                  <div key={layer.num} className="bg-white border-t-2 border-portfolio-black p-8">
-                    <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-4">
-                      {layer.num}
-                    </span>
-                    <h4 className="text-body font-bold text-portfolio-black tracking-wide leading-snug mb-6">
-                      {layer.title}
-                    </h4>
-                    <ul className="space-y-3 pt-6 border-t border-portfolio-light-grey">
-                      {layer.items.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-3 text-body text-portfolio-dark-grey"
+              <div className="flex flex-wrap items-stretch gap-y-6">
+                {measurementFlow.map((step, i) => {
+                  const isLast = i === measurementFlow.length - 1;
+                  return (
+                    <div key={step} className="flex items-stretch">
+                      <div
+                        className={`pt-4 border-t-2 ${
+                          isLast ? 'border-[#1b4fd8]' : 'border-portfolio-black'
+                        }`}
+                      >
+                        <span className="text-caption text-portfolio-grey tracking-[0.15em] block mb-2">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                        <p
+                          className={`text-caption font-semibold tracking-[0.12em] leading-snug whitespace-nowrap ${
+                            isLast ? 'text-[#1b4fd8]' : 'text-portfolio-black'
+                          }`}
                         >
-                          <span className="w-1.5 h-1.5 bg-portfolio-black rounded-full mt-2 flex-shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+                          {step}
+                        </p>
+                      </div>
+                      {i < measurementFlow.length - 1 && (
+                        <span className="self-end pb-1 mx-3 lg:mx-5 text-portfolio-grey">→</span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Data Flow */}
+            {/* Revenue Attribution — Dashboard Visual */}
             <div className="mb-20">
-              <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-8">DATA FLOW</span>
-              <div className="flex flex-wrap items-center gap-y-4">
-                {dataFlow.map((step, i) => (
-                  <div key={step} className="flex items-center">
-                    <div className="px-6 py-4 border border-portfolio-black text-caption font-semibold tracking-[0.15em] text-portfolio-black">
-                      {step}
-                    </div>
-                    {i < dataFlow.length - 1 && <span className="mx-3 text-portfolio-grey">→</span>}
-                  </div>
-                ))}
+              <div className="border border-portfolio-light-grey overflow-hidden">
+                {/* Narrow crop on phones so the dashboard stays legible at 390px */}
+                <picture>
+                  <source
+                    media="(max-width: 640px)"
+                    srcSet="/hb-dashboard-demo-mobile.png"
+                  />
+                  <img
+                    src="/hb-dashboard-demo.png"
+                    alt="Revenue Attribution dashboard — portfolio demo with synthetic data"
+                    className="w-full h-auto"
+                  />
+                </picture>
               </div>
-              <p className="text-body text-portfolio-dark-grey max-w-3xl leading-relaxed mt-8">
-                콘텐츠 반응을 단순 조회수로 끝내지 않고 고객 유입 및 전환 데이터와 연결하여 다음 마케팅
-                의사결정에 활용할 수 있는 구조를 설계했습니다.
+              <p className="text-small text-portfolio-grey leading-relaxed mt-4">
+                Revenue Attribution 모듈 — Marketing → Visit → Payment → Revenue
               </p>
             </div>
 
@@ -822,6 +787,60 @@ export function HealingbreezeCaseStudy() {
                   30일 성숙 코호트(Mature Cohort)를 기준으로 귀인 매출을 측정하는 구조입니다. 위
                   수치는 실제 업무에서 설계한 Attribution 로직과 데이터 트렌드를 포트폴리오용
                   Synthetic Data로 재구성한 값이며, 실제 회사 운영 실적을 나타내지 않습니다.
+                </p>
+              </div>
+            </div>
+
+            {/* System Scope — 8 Analytics Modules */}
+            <div className="mb-20">
+              <span className="text-caption text-portfolio-grey tracking-[0.2em] block mb-6">
+                8 ANALYTICS MODULES
+              </span>
+              <p className="text-body text-portfolio-dark-grey leading-loose max-w-4xl">
+                {analyticsModules.map((m, i) => (
+                  <span key={m}>
+                    {i > 0 && <span className="text-portfolio-grey mx-2">·</span>}
+                    <span
+                      className={
+                        m === 'Revenue Attribution'
+                          ? 'text-portfolio-black font-semibold'
+                          : undefined
+                      }
+                    >
+                      {m}
+                    </span>
+                  </span>
+                ))}
+              </p>
+              <p className="text-small text-portfolio-grey leading-relaxed mt-6 max-w-3xl">
+                Revenue Attribution은 이 Marketing Performance System의 최종 측정 레이어입니다.
+              </p>
+            </div>
+
+            {/* Live Dashboard CTA */}
+            <div className="mb-20 pt-10 border-t border-portfolio-light-grey flex flex-wrap items-start gap-6 lg:gap-10">
+              <a
+                href="https://vinnieoni.github.io/hb-china-dashboard-demo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-portfolio-black text-portfolio-black text-sm font-semibold tracking-[0.15em] transition-all duration-300 hover:bg-portfolio-black hover:text-white"
+              >
+                <span>VIEW LIVE DASHBOARD</span>
+                <ExternalLink
+                  size={16}
+                  className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                />
+              </a>
+              <div className="max-w-md">
+                <p className="text-caption font-semibold text-portfolio-black tracking-[0.15em] mb-2">
+                  PORTFOLIO DEMO · SYNTHETIC DATA
+                </p>
+                <p className="text-small text-portfolio-grey leading-relaxed">
+                  실제 업무에서 설계한 분석 구조를 포트폴리오용 Synthetic Data로 재구성했습니다. 표시된
+                  수치는 실제 회사 운영 실적을 나타내지 않습니다.
+                </p>
+                <p className="text-small text-portfolio-grey leading-relaxed mt-2">
+                  All displayed values are synthetic and do not represent actual company performance.
                 </p>
               </div>
             </div>
