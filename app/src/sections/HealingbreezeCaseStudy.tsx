@@ -55,14 +55,18 @@ const analyticsModules = [
   'Revenue Attribution',
 ];
 
+// Attribution begins at VISIT: payments are matched to a visit, never to an
+// inquiry or a reservation. The phase labels mark where that hand-off happens.
 const measurementFlow = [
-  'CONTENT / CHANNEL',
-  'INQUIRY',
-  'RESERVATION',
-  'VISIT',
-  'PAYMENT',
-  'REVENUE',
+  { step: 'CONTENT / CHANNEL', phase: 'MARKETING / CUSTOMER JOURNEY' },
+  { step: 'INQUIRY' },
+  { step: 'RESERVATION' },
+  { step: 'VISIT', phase: 'REVENUE ATTRIBUTION' },
+  { step: 'PAYMENT' },
+  { step: 'REVENUE' },
 ];
+
+const ATTRIBUTION_FROM = 3; // index of VISIT — the attribution anchor
 
 const attributionMetrics = [
   { value: '1,845', label: 'MATURE VISIT CUSTOMERS' },
@@ -685,25 +689,40 @@ export function HealingbreezeCaseStudy() {
                 MEASUREMENT ARCHITECTURE
               </span>
               <div className="flex flex-wrap items-stretch gap-y-6">
-                {measurementFlow.map((step, i) => {
+                {measurementFlow.map((item, i) => {
+                  const attributed = i >= ATTRIBUTION_FROM;
                   const isLast = i === measurementFlow.length - 1;
                   return (
-                    <div key={step} className="flex items-stretch">
-                      <div
-                        className={`pt-4 border-t-2 ${
-                          isLast ? 'border-[#1b4fd8]' : 'border-portfolio-black'
-                        }`}
-                      >
-                        <span className="text-caption text-portfolio-grey tracking-[0.15em] block mb-2">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                        <p
-                          className={`text-caption font-semibold tracking-[0.12em] leading-snug whitespace-nowrap ${
-                            isLast ? 'text-[#1b4fd8]' : 'text-portfolio-black'
+                    <div key={item.step} className="flex items-stretch">
+                      <div>
+                        {/* phase eyebrow — absolute so a wide label never widens the row */}
+                        <div className="relative h-4 mb-2">
+                          {item.phase && (
+                            <span
+                              className={`absolute left-0 top-0 whitespace-nowrap text-[10px] font-semibold tracking-[0.16em] ${
+                                attributed ? 'text-[#1b4fd8]' : 'text-portfolio-grey'
+                              }`}
+                            >
+                              {item.phase}
+                            </span>
+                          )}
+                        </div>
+                        <div
+                          className={`pt-4 border-t-2 ${
+                            attributed ? 'border-[#1b4fd8]' : 'border-portfolio-black'
                           }`}
                         >
-                          {step}
-                        </p>
+                          <span className="text-caption text-portfolio-grey tracking-[0.15em] block mb-2">
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <p
+                            className={`text-caption font-semibold tracking-[0.12em] leading-snug whitespace-nowrap ${
+                              isLast ? 'text-[#1b4fd8]' : 'text-portfolio-black'
+                            }`}
+                          >
+                            {item.step}
+                          </p>
+                        </div>
                       </div>
                       {i < measurementFlow.length - 1 && (
                         <span className="self-end pb-1 mx-3 lg:mx-5 text-portfolio-grey">→</span>
