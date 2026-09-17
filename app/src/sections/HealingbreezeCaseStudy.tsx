@@ -758,10 +758,7 @@ export function HealingbreezeCaseStudy() {
             <div className="mb-20 bg-portfolio-black text-white p-8 lg:p-14">
               <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 mb-6">
                 <span className="text-caption text-portfolio-grey tracking-[0.2em]">
-                  REVENUE ATTRIBUTION MVP
-                </span>
-                <span className="text-caption text-portfolio-grey tracking-[0.2em]">
-                  2026.06.01 – 09.14
+                  REVENUE ATTRIBUTION MVP · KOS DATA INTEGRATION
                 </span>
                 <span className="px-3 py-1 border border-white/40 text-caption font-semibold tracking-[0.15em] text-white">
                   PORTFOLIO DEMO · SYNTHETIC DATA
@@ -775,8 +772,9 @@ export function HealingbreezeCaseStudy() {
               </h3>
 
               <p className="text-body-large text-portfolio-light-grey max-w-3xl leading-relaxed mb-12">
-                실제 업무에서 내원·결제 데이터를 연결하는 30일 Revenue Attribution 구조를 직접
-                설계·구축하고, 포트폴리오에서는 동일한 분석 구조를 Synthetic Data로 재구성했습니다.
+                실제 업무에서 KOS 예약·내원·결제 데이터를 연계하여 30일 Revenue Attribution 구조를
+                직접 설계·구축하고, 포트폴리오에서는 동일한 분석 구조를 Synthetic Data로
+                재구성했습니다.
               </p>
 
               {/* Key business impact */}
