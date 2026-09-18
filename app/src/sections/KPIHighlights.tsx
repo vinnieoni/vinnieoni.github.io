@@ -4,7 +4,7 @@ import { Film, Eye, Users, TrendingUp } from 'lucide-react';
 
 const stats = [
   {
-    number: 166,
+    number: 200,
     suffix: '+',
     label: '콘텐츠 제작',
     icon: Film,
