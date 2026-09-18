@@ -201,7 +201,7 @@ export function CaseStudy() {
               <span className="text-caption text-portfolio-grey tracking-[0.2em] mb-4 block">성과</span>
               <h2 className="text-headline text-portfolio-black mb-6">Results</h2>
               <p className="text-body-large text-portfolio-dark-grey leading-relaxed">
-                약 2년간 4개 플랫폼을 동시 운영하며 다음과 같은 성과를 달성했습니다. 평균
+                2024.10–2026.03 동안 4개 플랫폼을 동시 운영하며 다음과 같은 성과를 달성했습니다. 평균
                 참여율은 2.7%를 유지했습니다.
               </p>
             </div>
