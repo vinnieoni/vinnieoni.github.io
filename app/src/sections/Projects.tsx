@@ -26,14 +26,13 @@ const projects: Project[] = [
     link: '#healingbreeze',
   },
   {
-    id: 5,
-    category: 'Global eCommerce Strategy & Growth',
-    title: 'ELREJU × KBSL',
-    description:
-      '한국 K-Beauty 브랜드의 미국 TikTok Shop 진출을 앞두고 수행한 Pre-Launch 시장조사 및 Go-to-Market 전략 수립 — 경쟁 분석, 전환 구조 설계, 가격·GMV 시나리오, 실행 로드맵',
-    metrics: '2026 · Strategy Sprint',
-    image: '/elreju-thumb.png',
-    link: '#elreju',
+    id: 3,
+    category: 'Multidisciplinary Arts & Global Collaboration',
+    title: 'MOOMOO · 생성형 AI 영상 제작',
+    description: '장애예술을 주제로 한 한국-호주 연계 다원예술 프로젝트 — 국내 협업 프로덕션부터 호주 Flinders University 전시까지',
+    metrics: '2025.09 – 2025.12 · 성균관대학교',
+    image: '/moomoo-cover.png',
+    link: '#moomoo',
   },
   {
     id: 2,
@@ -45,13 +44,14 @@ const projects: Project[] = [
     link: '#casestudy',
   },
   {
-    id: 3,
-    category: 'Multidisciplinary Arts & Global Collaboration',
-    title: '다원예술 캡스톤디자인',
-    description: '장애예술을 주제로 한 한국-호주 연계 다원예술 프로젝트 — 국내 협업 프로덕션부터 호주 Flinders University 전시까지',
-    metrics: '2025.09 – 2025.12 · 성균관대학교',
-    image: '/moomoo-cover.png',
-    link: '#moomoo',
+    id: 5,
+    category: 'Global eCommerce Strategy & Growth',
+    title: 'ELREJU × KBSL',
+    description:
+      '한국 K-Beauty 브랜드의 미국 TikTok Shop 진출을 앞두고 수행한 Pre-Launch 시장조사 및 Go-to-Market 전략 수립 — 경쟁 분석, 전환 구조 설계, 가격·GMV 시나리오, 실행 로드맵',
+    metrics: '2026 · Strategy Sprint',
+    image: '/elreju-thumb.png',
+    link: '#elreju',
   },
   {
     id: 4,
@@ -169,6 +169,22 @@ function ProjectCard({
           }`}
         >
           {cardContent}
+        </div>
+      )}
+      {project.id === 1 && (
+        <div className="bg-white px-6 pb-6 lg:px-8 lg:pb-8">
+          <a
+            href="https://vinnieoni.github.io/hb-china-dashboard-demo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-portfolio-black px-4 py-3 text-sm font-medium text-portfolio-black hover:bg-portfolio-black hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 transition-colors"
+          >
+            성과 분석 Dashboard 보기
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+          <p className="mt-3 text-small text-portfolio-grey">
+            합성 데이터 데모 · 실제 회사 운영 실적이 아닙니다.
+          </p>
         </div>
       )}
     </div>
