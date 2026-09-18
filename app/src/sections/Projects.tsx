@@ -40,7 +40,7 @@ const projects: Project[] = [
     category: 'China SNS Growth & Localization',
     title: '탕화공부 마라탕 코리아',
     description: '중국 SNS 플랫폼 기반 디지털 마케팅 전략 수행',
-    metrics: '166+ 콘텐츠 · 4개 플랫폼 동시 운영',
+    metrics: '200+ 콘텐츠 · 4개 플랫폼 동시 운영',
     image: '/tang-logo.jpg',
     link: '#casestudy',
   },
